@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width, initial-scale=0.8"/><title>6&nbsp;REDEX</title><link rel="stylesheet" type="text/css" href="scribble.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-style.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-racket.css" title="default"/><script type="text/javascript" src="scribble-common.js"></script><script type="text/javascript" src="manual-racket.js"></script><!--[if IE 6]><style type="text/css">.SIEHidden { overflow: hidden; }</style><![endif]--></head><body id="scribble-racket-lang-org"><div class="tocset"><div class="tocview"><div class="tocviewlist tocviewlisttopspace"><div class="tocviewtitle"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">&#9660;</a></td><td></td><td><a href="index.html" class="tocviewlink" data-pltdoc="x">A Theory of Microarchitecture</a></td></tr></table></div><div class="tocviewsublistonly" style="display: block;" id="tocview_0"><table cellspacing="0" cellpadding="0"><tr><td align="right">1&nbsp;</td><td><a href="Architecture_Layer.html" class="tocviewlink" data-pltdoc="x">Architecture Layer</a></td></tr><tr><td align="right">2&nbsp;</td><td><a href="Microarchitecture_Layer.html" class="tocviewlink" data-pltdoc="x">Microarchitecture Layer</a></td></tr><tr><td align="right">3&nbsp;</td><td><a href="Contextual_Equivalence.html" class="tocviewlink" data-pltdoc="x">Contextual Equivalence</a></td></tr><tr><td align="right">4&nbsp;</td><td><a href="General_security_properties.html" class="tocviewlink" data-pltdoc="x">General security properties</a></td></tr><tr><td align="right">5&nbsp;</td><td><a href="Architecture_Security.html" class="tocviewlink" data-pltdoc="x">Architecture Security</a></td></tr><tr><td align="right">6&nbsp;</td><td><a href="" class="tocviewselflink" data-pltdoc="x">REDEX</a></td></tr><tr><td align="right">7&nbsp;</td><td><a href="Ideas.html" class="tocviewlink" data-pltdoc="x">Ideas</a></td></tr><tr><td align="right">8&nbsp;</td><td><a href="TODOs_for_me.html" class="tocviewlink" data-pltdoc="x">TODOs for me</a></td></tr><tr><td align="right">9&nbsp;</td><td><a href="My_progress.html" class="tocviewlink" data-pltdoc="x">My progress</a></td></tr><tr><td align="right">10&nbsp;</td><td><a href="Questions.html" class="tocviewlink" data-pltdoc="x">Questions</a></td></tr><tr><td align="right">11&nbsp;</td><td><a href="Meets_with_William.html" class="tocviewlink" data-pltdoc="x">Meets with William</a></td></tr></table></div></div></div></div><div class="maincolumn"><div class="main"><div class="versionbox"><span class="version">7.5</span></div><div class="navsettop"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;</span><span class="navright">&nbsp;&nbsp;<a href="Architecture_Security.html" title="backward to &quot;5 Architecture Security&quot;" data-pltdoc="x">&larr; prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;A Theory of Microarchitecture&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="Ideas.html" title="forward to &quot;7 Ideas&quot;" data-pltdoc="x">next &rarr;</a></span>&nbsp;</div><h3>6<tt>&nbsp;</tt><a name="(part._.R.E.D.E.X)"></a>REDEX</h3><p><div class="SIntrapara">Some good links for Redex that I used:
+</div><div class="SIntrapara"><ul><li><p>http://prl.ccs.neu.edu/blog/2017/09/25/plt-redex-faq/</p></li><li><p>https://github.com/wilbowma/experimenting-with-redex</p></li><li><p>Obviously the main redex documentation</p></li><li><p>(Redex link for trying out things: https://github.com/aartikash/Models/blob/master/Models/neub.rkt)
+Thoughts about redex; this is a tool that allows me to
+formalise the notion of programming languages in terms of
+syntax semantics and rules and check that they work ok.</p></li></ul></div></p><p>Main components of a redex model:</p><p>- languages (grammar for terms)
+- judgements (properties of terms of relations between terms)
+- metafunctions (functions on terms)
+- reduction relations (defining a rewriting system)</p><p>Q:Language
+  - consists of the grammar
+  - contains non-terminals, patterns and binding forms</p><p>Q:pattern
+  - we can create multiple patterns and test it
+  with the non-terminals of our language to check if the language
+  matches the pattern.</p><p>Q: named non-terminals</p><p>- these are like x_1 , x_2. So for eg if we want to use the notion
+  of nat (n) in our language then n_1 and n_2 can be used to refer to
+  different nats in our language.</p><p>Q: Patterns usefulness
+ - they allows the syntactic representation of our grammar
+ - this means that they help us understand the different representations
+ that the grammar will support.
+ q: why do we need to see such combination of terms?
+ A: to check if our program is well represented atleast based
+ on the syntactic definition even before looking at the semantics
+ q: so in real world what is the usecase?
+ A: if we use wrong syntax then it can be used to point out things
+ for the user?
+ q: patterns do fail?
+ A: there are no negations on redex</p><p>judgements
+ - form defines relation on terms
+ q: what sort of judgements usually exist?
+ a: well formed conditions, for eg. if A TERM contains a free variabke
+ - type checking rules which basically tell which term is which types
+ - type inference rules are also conveyed using This
+ - evaluation relations (these are the big step sort of semantics)</p><p>The way to define any judgement relation is to use
+- language (grammar)
+- mode (this tells us the form of the judgements) (I I means that
+the the judment consists of two inputs)
+q: what is the point of the judgment rule without any output?
+a: it can help test the well formedness of the terms maybe?
+  - it also can test for type checking rules
+  - for type inference rules the mode will perhaps be of the form I I O or O I
+  depending on the type we are trying to infer.
+q: mode
+  - so when we specify the mode where we mention I O and other order
+  so the output that we want and it tells us the output at that location
+  or position</p><blockquote class="refpara"><blockquote class="refcolumn"><blockquote class="refcontent"><p>Note: I think there are things i still don&rsquo;t understand
+about judgments. Perhaps completely modeling system F in Redex would
+make sense to me.</p></blockquote></blockquote></blockquote><p><div class="SIntrapara">Metafunctions:
+ </div><div class="SIntrapara"><ul><li><p>term-level function on terms</p></li><li><p>langauge, mode, contract and gaurded input output cases</p></li></ul></div><div class="SIntrapara"><blockquote class="refpara"><blockquote class="refcolumn"><blockquote class="refcontent"><p>Note: What is meant by gaurded cases?</p></blockquote></blockquote></blockquote></div><div class="SIntrapara"><blockquote class="refpara"><blockquote class="refcolumn"><blockquote class="refcontent"><p>There is still a lack of understanding wheater I
+should use judgment forms or metafunctions. Apparently judgment
+forms are easier to maintain.</p></blockquote></blockquote></blockquote></div><div class="SIntrapara"><blockquote class="refpara"><blockquote class="refcolumn"><blockquote class="refcontent"><p>Metafunctions form a sequence not a set? What is that
+supposed to mean?</p></blockquote></blockquote></blockquote></div></p><p><div class="SIntrapara">Contexts:
+Before going to reduction relations, some very important concepts
+to understand are contexts and evaluation contexts.
+</div><div class="SIntrapara"><ul><li><p>There are multiple different types of contexts that can
+exist depending on how the programming language is modeled.</p></li><li><p>A program context is like a function that exists that
+is replaced in the expressions, for example, &rsquo;e + e&rsquo; is defined
+as &rsquo;C + e&rsquo; which basically means that the expression is coming
+from some function that is not the semantics of the languages.
+It is like an input-output thing (function?) that basically
+produces the value and it can be an expression also.</p></li><li><blockquote class="refpara"><blockquote class="refcolumn"><blockquote class="refcontent"><p>I am starting to think that everything at the end of
+the day is the game of contexts and defining the correct contexts.</p></blockquote></blockquote></blockquote></li><li><p>Evaluation contexts in any language determine the order of evaluation</p></li><li><p>Translation contexts - the contexts that translate the terms so again
+can think of them as functions.</p></li><li><p>Any other context: so what other types of contexts can there be?
+- type contexts ("{\displaystyle e}e has type {\displaystyle \tau }\tau  in context {\displaystyle \Gamma }\Gamma  "), value contexts</p></li></ul></div></p><p><div class="SIntrapara">Reduction relations:
+</div><div class="SIntrapara"><ul><li><p>term -rewriting rules</p></li><li><p>contains: language, domain, rules</p></li><li><p>Everything is a pattern; input to the reduction relation
+is a pattern and so is the output.</p></li><li><p>For a standard language we can presume that a language
+consists of three non-terminals (expr, values and eval contexts)</p></li></ul></div><div class="SIntrapara"><blockquote class="refpara"><blockquote class="refcolumn"><blockquote class="refcontent"><p>Is it term rewriting in the same language
+or different language? Term rewriting can also be defined
+in another language? can it not?</p></blockquote></blockquote></blockquote></div></p><p><div class="SIntrapara">Why are reduction relations so interesting?
+</div><div class="SIntrapara"><ul><li><p>The reduction relations are actually representative of how
+I&rsquo;d have defined it on paper.</p></li><li><p>When specifying a redex relation, the pattern on the left side
+describes the redexes and their contexts and the right hand side
+determines the result of such a rule on a specific expression.</p></li><li><blockquote class="refpara"><blockquote class="refcolumn"><blockquote class="refcontent"><p>Everything is patterns patterns and patterns</p></blockquote></blockquote></blockquote></li><li><p>Now there are multiple ways in which a term can be reduced
+which means that there are non-deterministic patterns that can exist.</p></li><li><p>In a very simple language the patterns are mostly deterministic or
+atleast in the eg we have given here.</p></li><li><p>So when what sort of an evaluator can be use when defining
+the reduction relation? &ndash; so that depends on the evaluation context
+that we want to define.
+From my current understanding there exist compatible closure and maybe
+cbv sort of reductions within the redex model.</p></li></ul></div></p><p><div class="SIntrapara">Q: What are the different types of reduction relations and when to use
+the which relation?
+</div><div class="SIntrapara"><ul><li><p>Compatible closure - this implies that </p></li></ul></div></p><p><div class="SIntrapara">Bindings
+</div><div class="SIntrapara"><ul><li><p>The bindings play an important role in the sense that they are
+important parts in functional languages </p></li><li><blockquote class="refpara"><blockquote class="refcolumn"><blockquote class="refcontent"><p>I&rsquo;m not sure what role do bindings play in languages with
+states?</p></blockquote></blockquote></blockquote></li></ul></div></p><div class="navsetbottom"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;</span><span class="navright">&nbsp;&nbsp;<a href="Architecture_Security.html" title="backward to &quot;5 Architecture Security&quot;" data-pltdoc="x">&larr; prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;A Theory of Microarchitecture&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<a href="Ideas.html" title="forward to &quot;7 Ideas&quot;" data-pltdoc="x">next &rarr;</a></span>&nbsp;</div></div></div><div id="contextindicator">&nbsp;</div></body></html>

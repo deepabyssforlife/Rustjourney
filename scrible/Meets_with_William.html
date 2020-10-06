@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width, initial-scale=0.8"/><title>11&nbsp;Meets with William</title><link rel="stylesheet" type="text/css" href="scribble.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-style.css" title="default"/><link rel="stylesheet" type="text/css" href="manual-racket.css" title="default"/><script type="text/javascript" src="scribble-common.js"></script><script type="text/javascript" src="manual-racket.js"></script><!--[if IE 6]><style type="text/css">.SIEHidden { overflow: hidden; }</style><![endif]--></head><body id="scribble-racket-lang-org"><div class="tocset"><div class="tocview"><div class="tocviewlist tocviewlisttopspace"><div class="tocviewtitle"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">&#9660;</a></td><td></td><td><a href="index.html" class="tocviewlink" data-pltdoc="x">A Theory of Microarchitecture</a></td></tr></table></div><div class="tocviewsublisttop" style="display: block;" id="tocview_0"><table cellspacing="0" cellpadding="0"><tr><td align="right">1&nbsp;</td><td><a href="Architecture_Layer.html" class="tocviewlink" data-pltdoc="x">Architecture Layer</a></td></tr><tr><td align="right">2&nbsp;</td><td><a href="Microarchitecture_Layer.html" class="tocviewlink" data-pltdoc="x">Microarchitecture Layer</a></td></tr><tr><td align="right">3&nbsp;</td><td><a href="Contextual_Equivalence.html" class="tocviewlink" data-pltdoc="x">Contextual Equivalence</a></td></tr><tr><td align="right">4&nbsp;</td><td><a href="General_security_properties.html" class="tocviewlink" data-pltdoc="x">General security properties</a></td></tr><tr><td align="right">5&nbsp;</td><td><a href="Architecture_Security.html" class="tocviewlink" data-pltdoc="x">Architecture Security</a></td></tr><tr><td align="right">6&nbsp;</td><td><a href="REDEX.html" class="tocviewlink" data-pltdoc="x">REDEX</a></td></tr><tr><td align="right">7&nbsp;</td><td><a href="Ideas.html" class="tocviewlink" data-pltdoc="x">Ideas</a></td></tr><tr><td align="right">8&nbsp;</td><td><a href="TODOs_for_me.html" class="tocviewlink" data-pltdoc="x">TODOs for me</a></td></tr><tr><td align="right">9&nbsp;</td><td><a href="My_progress.html" class="tocviewlink" data-pltdoc="x">My progress</a></td></tr><tr><td align="right">10&nbsp;</td><td><a href="Questions.html" class="tocviewlink" data-pltdoc="x">Questions</a></td></tr><tr><td align="right">11&nbsp;</td><td><a href="" class="tocviewselflink" data-pltdoc="x">Meets with William</a></td></tr></table></div></div><div class="tocviewlist"><table cellspacing="0" cellpadding="0"><tr><td style="width: 1em;"><a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">&#9658;</a></td><td>11&nbsp;</td><td><a href="" class="tocviewselflink" data-pltdoc="x">Meets with William</a></td></tr></table><div class="tocviewsublistbottom" style="display: none;" id="tocview_1"><table cellspacing="0" cellpadding="0"><tr><td align="right">11.1&nbsp;</td><td><a href="#%28part._30th.July%29" class="tocviewlink" data-pltdoc="x">30th<span class="mywbr"> &nbsp;</span>July</a></td></tr></table></div></div></div><div class="tocsub"><div class="tocsubtitle">On this page:</div><table class="tocsublist" cellspacing="0"><tr><td><span class="tocsublinknumber">11.1<tt>&nbsp;</tt></span><a href="#%28part._30th.July%29" class="tocsubseclink" data-pltdoc="x">30th<span class="mywbr"> &nbsp;</span>July</a></td></tr></table></div></div><div class="maincolumn"><div class="main"><div class="versionbox"><span class="version">7.5</span></div><div class="navsettop"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;</span><span class="navright">&nbsp;&nbsp;<a href="Questions.html" title="backward to &quot;10 Questions&quot;" data-pltdoc="x">&larr; prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;A Theory of Microarchitecture&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<span class="nonavigation">next &rarr;</span></span>&nbsp;</div><h3>11<tt>&nbsp;</tt><a name="(part._.Meets_with_.William)"></a>Meets with William</h3><p>Tracking meets with William just to keep a track of
+what I&rsquo;m discussing to refer back just in case.
+Note: Also saving Zoom chats so please keep a track
+of that.</p><h4>11.1<tt>&nbsp;</tt><a name="(part._30th.July)"></a>30thJuly</h4><p><div class="SIntrapara">Points to discuss:
+</div><div class="SIntrapara"><ul><li><p>The architecture layer and what all it contains - reg and mem</p></li><li><p>The micro architecture layer and what all it contains - reg + mem ( reorder buffers + caches + branch predictors + schedulers)</p></li><li><p>but there is no one way to arrange all these things.</p></li><li><p>So the observation set or the traces for the architecture  layer  is going to be (reg + mem) which has
+to be somehow related to the traces in the microarchitecture layer.</p></li><li><p>Every thing caches, branch predictors have more complexity within it but in the language that we describe
+these are modeled as functions &ndash; like you give it an input and an output is returned such tat within it the
+state does not have to be tracked.</p></li></ul></div></p><p>&#8212;<wbr></wbr>-
+- reorder  buffer - we  can model the things in the same language
+                 - this is quite common optimization in the languages
+                 - e1 and e2 have independent effects
+                - we can reorder buffer
+- asm (under all contexts) in the architecture layer
+- reorder buffer that we show as a metateoretic property
+- how is it true in case of  reorder  buffer? - this   can be shown in the case
+of this specific thingy. fair,
+- we cant
+- cache -  we need the abstract notion of caches and so long we have that.
+        - we need some behaviour to observe timing
+        - computers have a clock and computers have
+        - we add an instruction
+        - do we have some countermeasure that somethign is in the cache.</p><p>&#8212;<wbr></wbr>
+Observations that the target makes - thats the attacker can model, that includes timing.
+&ndash;If we change the semantics in the taget languages.
+&ndash; clearing the cache is not what we want to do.
+&ndash; restrict linking, we have a chunck of code sensitive to timing, we have to make
+sure that the entire code that runs does not observe timing
+&ndash; it doesnt require dynamic linking, when we link nobody is using too accurate of the clock.</p><p>&ndash; if the architecture is caching,
+&ndash; we should start with the architecture layer and it will give a lot of practice modeling
+low level details.
+&ndash; we have complete model of the architecture
+&ndash; modeling the architecture layer.</p><p>&#8212;<wbr></wbr>
+What is happening in the internship?
+- have to model just the cache semantics
+- there is countermeasure which is the undo countermeasure
+- how spectre really happens and how to model the countermeasure</p><p>&#8212;<wbr></wbr>
+Compiler correctness realm
+- Amal&rsquo;s thesis to understand a bit more about mutable references and logical relations
+- Also type soundness proofs which is sort of based on logical relations
+- Also, don&rsquo;t yet see the difference between syntactic and semantic proof approaches.
+- Also have realised that there is difference between contexts and evaluation contexts; i think
+these are two different things. Context is like filling the hole sort of thing and whereas evaluation
+context is more like decides the order of the evaluation stuff.</p><p>&ndash; type rules and the type rule is;</p><p>&ndash; we have to show the proofs from set theory and then reuse the proofs as we want.
+&ndash; intutively  it might feel that  this might be the case and if we dont show then we might not know.</p><p>come context it runs stlc with bools cbv and cbn  and show that they evaluate to different VALUES WITHHOUT USING EVAL CONTEXT
+;</p><p>&#8212;<wbr></wbr> &#207;ULL ABSTRACTION
+- IRIS framework to prove a FA proof, iris abstract noton of logical relation in coq, semantic type soundness;
+- managed to use it for soem other proof.
+- modeling iris. try doing it in iris.
+- beluga: simplifies the binding problem it might be useful.</p><p>system F style beluga; iris; agda</p><div class="navsetbottom"><span class="navleft"><div class="nosearchform"></div>&nbsp;&nbsp;</span><span class="navright">&nbsp;&nbsp;<a href="Questions.html" title="backward to &quot;10 Questions&quot;" data-pltdoc="x">&larr; prev</a>&nbsp;&nbsp;<a href="index.html" title="up to &quot;A Theory of Microarchitecture&quot;" data-pltdoc="x">up</a>&nbsp;&nbsp;<span class="nonavigation">next &rarr;</span></span>&nbsp;</div></div></div><div id="contextindicator">&nbsp;</div></body></html>
